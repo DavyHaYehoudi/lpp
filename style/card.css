@@ -1,0 +1,49 @@
+h2 {
+    font-size: 18px;
+    line-height: 27.1px;
+    color: var(--card-title);
+}
+
+h3,
+h4 {
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16.39px;
+    color: var(--grey);
+}
+.card .top{
+    position: relative;
+    width: 380px;
+    height: 253px;
+}
+.card img{
+    width: 100%;
+}
+.card .time{
+    position: absolute;
+    top:21px;
+    right: 15px;
+    background-color: var(--yellow);
+    border-radius: 14px;
+    padding: 5px 15px;
+    font-size: 12px;
+    line-height: 16.39px;
+    font-weight: 400;
+}
+
+.text-recipe {
+    font-size: 14px;
+    line-height: 19.12px;
+    color: var(--black);
+}
+.card .recipe {
+    font-weight: 400;
+}
+.card .ingredient {
+    font-weight: 500;
+}
+
+.card .quantity {
+    font-weight: 400;
+}
