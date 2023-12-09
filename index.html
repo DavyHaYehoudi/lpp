@@ -30,7 +30,7 @@
               <input
                 type="search"
                 id="search-bar"
-                name="q"
+                name="search-general"
                 placeholder="Rechercher une recette, un ingrédient, ..."
               />
               <button type="submit">
@@ -41,18 +41,128 @@
         </div>
       </header>
       <main id="main">
-        <section id="cards">
-            <!-- <button onclick="()=>cardsList()" >ici</button> -->
-
-            
-        </section>
+        <div id="advanced-search">
+          <section id="selects">
+            <div id="ingredient_listBox" class="custom-listbox">
+              <div class="listbox-header" data-section-id="ingredient_listBox">
+                <h4>Ingrédients</h4>
+                <i class="fa-solid fa-angle-down"></i>
+              </div>
+              <div class="listbox-content">
+                <form action="/endpoint-de-recherche" method="GET">
+                  <label for="search_bar_ingredient" class="sr-only"
+                    >Rechercher des ingrédients</label
+                  >
+                  <input
+                    type="search"
+                    class="search-bar-select"
+                    id="search_bar_ingredient"
+                    name="ingredients"
+                    placeholder="Recherche"
+                    aria-label="Rechercher des appareils"
+                  />
+                  <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+                <ul
+                  class="selectedItem"
+                  
+                ></ul>
+                <ul class="options">
+                  <li data-name="Option 1" data-section-id="ingredient_listBox">Option 1</li>
+                  <li data-name="Option 1" data-section-id="ingredient_listBox">Option 2</li>
+                  <li data-name="Option 1" data-section-id="ingredient_listBox">Option 3</li>
+                  <li data-name="Option 1" data-section-id="ingredient_listBox">Option 4</li>
+                  <li data-name="Option 1" data-section-id="ingredient_listBox">Option 5</li>
+                  <li data-name="Option 1" data-section-id="ingredient_listBox">Option 6</li>
+                </ul>
+              </div>
+            </div>
+            <div id="appliance_listBox" class="custom-listbox">
+              <div class="listbox-header" data-section-id="appliance_listBox">
+                <h4>Appareils</h4>
+                <i class="fa-solid fa-angle-down"></i>
+              </div>
+              <div class="listbox-content">
+                <form action="/endpoint-de-recherche" method="GET">
+                  <label for="search_bar_appliance" class="sr-only"
+                    >Rechercher des appareils</label
+                  >
+                  <input
+                    type="search"
+                    class="search-bar-select"
+                    id="search_bar_appliance"
+                    name="appliance"
+                    placeholder="Recherche"
+                    aria-label="Rechercher des appareils"
+                  />
+                  <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+                <ul
+                  class="selectedItem"
+                  data-section-id="appliance_listBox"
+                ></ul>
+                <ul class="options">
+                  <li>Option 1</li>
+                  <li>Option 2</li>
+                  <li>Option 3</li>
+                  <li>Option 4</li>
+                  <li>Option 5</li>
+                  <li>Option 6</li>
+                </ul>
+              </div>
+            </div>
+            <div id="ustensils_listBox" class="custom-listbox">
+              <div class="listbox-header" data-section-id="ustensils_listBox">
+                <h4>Ustensiles</h4>
+                <i class="fa-solid fa-angle-down"></i>
+              </div>
+              <div class="listbox-content">
+                <form action="/endpoint-de-recherche" method="GET">
+                  <label for="search_bar_ustensils" class="sr-only"
+                    >Rechercher des ustensiles</label
+                  >
+                  <input
+                    type="search"
+                    class="search-bar-select"
+                    id="search_bar_ustensils"
+                    name="ustensils"
+                    placeholder="Recherche"
+                    aria-label="Rechercher des ustensiles"
+                  />
+                  <button type="submit">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                  </button>
+                </form>
+                <ul
+                  class="selectedItem"
+                  
+                ></ul>
+                <ul class="options">
+                  <li data-name="Option 1" data-section-id="ustensils_listBox">Option 1</li>
+                  <li data-name="Option 2" data-section-id="ustensils_listBox">Option 2</li>
+                  <li data-name="Option 3" data-section-id="ustensils_listBox">Option 3</li>
+                  <li data-name="Option 4" data-section-id="ustensils_listBox">Option 4</li>
+                  <li data-name="Option 5" data-section-id="ustensils_listBox">Option 5</li>
+                  <li data-name="Option 6" data-section-id="ustensils_listBox">Option 6</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <p id="recipesNumberFind">Nombre de recettes</p>
+        </div>
+        <div id="cards"></div>
       </main>
     </div>
-    <script type="module" src="scripts/card.js" ></script>
-    <script type="module" src="scripts/cards.js" ></script>
+    <script type="module" src="scripts/card.js"></script>
+    <script type="module" src="scripts/cards.js"></script>
+    <script type="module" src="scripts/listbox.js"></script>
     <script type="module">
-        import { cardsList } from "./scripts/cards.js";
-        cardsList();
-      </script>
+      import { cardsList } from "./scripts/cards.js";
+      cardsList();
+    </script>
   </body>
 </html>

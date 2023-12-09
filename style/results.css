@@ -1,0 +1,96 @@
+#advanced-search {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px;
+}
+
+#selects {
+    display: flex;
+    gap: 30px;
+}
+#selects h4{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21.86px;
+    color: var(--black);
+    letter-spacing: 1px;
+}
+
+.custom-listbox {
+    width: 195px;
+    background-color: white;
+    border-radius: 11px;
+}
+
+.listbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.listbox-content {
+    display: none;
+    border: 1px solid var(--light-grey);
+    backdrop-filter: blur(4%);
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+.listbox-content.display-block {
+    position: absolute;
+    z-index: 5;
+    height: auto;
+    display: block;
+    background-color: white;
+}
+#selects .fa-angle-down{
+    transition: transform 0.3s;
+}
+#selects .fa-angle-down.open{
+    transform: rotate(180deg);
+}
+
+.custom-listbox form {
+    border: 1px solid var(--light-grey);
+    margin: 10px;
+    padding: 2px;
+}
+
+.custom-listbox button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.search-bar-select {
+    padding: 5px;
+    border: none;
+    outline: none;
+}
+
+.options li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.options li:hover {
+    background-color: var(--yellow);
+}
+.selectedItem{
+    margin: 15px 0;
+}
+.selectedItem li{
+    margin-top: 5px;
+    padding: 5px;
+    background-color: var(--yellow);
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    place-items: center;
+    gap: 50px;
+    padding-bottom: 200px;
+}

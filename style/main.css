@@ -21,10 +21,17 @@ ul {
     width: 1440px;
     font-family: 'Manrope', sans-serif;
     margin: auto;
-    background-color: gray;
+    background-color: var(--light-grey);
 }
 
 h1,
 h2 {
     font-family: 'Anton', sans-serif;
+}
+/* Personnalisation de la couleur de la croix */
+#search-bar::-webkit-search-cancel-button,
+#search-bar::-webkit-search-clear-button,
+#search-bar-select::-webkit-search-cancel-button,
+#search-bar-select::-webkit-search-clear-button {
+    cursor: pointer;
 }
