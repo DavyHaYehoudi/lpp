@@ -31,7 +31,7 @@ h2 {
 /* Personnalisation de la couleur de la croix */
 #search-bar::-webkit-search-cancel-button,
 #search-bar::-webkit-search-clear-button,
-#search-bar-select::-webkit-search-cancel-button,
-#search-bar-select::-webkit-search-clear-button {
+.search-bar-select::-webkit-search-cancel-button,
+.search-bar-select::-webkit-search-clear-button {
     cursor: pointer;
 }

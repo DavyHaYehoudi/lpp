@@ -1,3 +1,4 @@
+/* ************************* LISTBOX ************************* */
 #advanced-search {
     display: flex;
     justify-content: space-between;
@@ -8,7 +9,8 @@
     display: flex;
     gap: 30px;
 }
-#selects h4{
+
+#selects h4 {
     font-size: 16px;
     font-weight: 500;
     line-height: 21.86px;
@@ -22,6 +24,12 @@
     border-radius: 11px;
 }
 
+.custom-listbox.open {
+    border-radius: initial;
+    border-top-right-radius: 11px;
+    border-top-left-radius: 11px;
+}
+
 .listbox-header {
     display: flex;
     justify-content: space-between;
@@ -32,7 +40,7 @@
 
 .listbox-content {
     display: none;
-    border: 1px solid var(--light-grey);
+    width: 195px;
     backdrop-filter: blur(4%);
     transition: height 0.3s ease;
     overflow: hidden;
@@ -45,10 +53,12 @@
     display: block;
     background-color: white;
 }
-#selects .fa-angle-down{
+
+#selects .fa-angle-down {
     transition: transform 0.3s;
 }
-#selects .fa-angle-down.open{
+
+#selects .fa-angle-down.open {
     transform: rotate(180deg);
 }
 
@@ -78,15 +88,56 @@
 .options li:hover {
     background-color: var(--yellow);
 }
-.selectedItem{
+
+.selectedItem {
     margin: 15px 0;
 }
-.selectedItem li{
+
+.selectedItem li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin-top: 5px;
     padding: 5px;
     background-color: var(--yellow);
 }
 
+/* ************************* TAGS ************************* */
+#tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 40px;
+}
+
+#tags li {
+ display: flex;
+ justify-content: space-between;
+ width: 203px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 19.12px;
+    color: var(--black);
+    background-color: var(--yellow);
+    border-radius: 10px;
+    padding: 17px 18px;
+}
+
+#tags button{
+    border: none;
+    background-color: var(--yellow);
+    transition: transform 0.3s ease-in-out;
+}
+#tags button:hover{
+    transform: translateY(-2px);
+}
+#tags i {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/* ************************* RECIPES CARDS ************************* */
 #cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

@@ -6,9 +6,11 @@ function toggleListbox(sectionId) {
   const $arrow = document.querySelector(
     `#${sectionId} > div.listbox-header > i `
   );
-  if ($target && $arrow) {
+  const $listbox = document.querySelector(`#${sectionId}`);
+  if ($target && $arrow && $listbox) {
     $target.classList.toggle("display-block");
     $arrow.classList.toggle("open");
+    $listbox.classList.toggle("open");
   }
 }
 
@@ -21,25 +23,25 @@ listboxHeaders.forEach((header) => {
   });
 });
 
-// Sélection d'une option et ajout de tag
-// const options = document.querySelectorAll("#ustensils_listBox .options li");
-const customLists = document.querySelectorAll('.custom-listbox');
+// Fermeture de la listbox au clic extérieur à elle-même
+document.addEventListener("click", (event) => {
+    const listboxContainers = document.querySelectorAll(".custom-listbox");
+    
+    // Vérifier si l'élément cliqué est à l'intérieur d'une listbox
+    const isClickInsideListbox = Array.from(listboxContainers).some((container) =>
+      container.contains(event.target)
+    );
+  
+    // Fermer toutes les listbox si le clic est en dehors
+    if (!isClickInsideListbox) {
+      listboxContainers.forEach((container) => {
+        container.querySelector(".listbox-content").classList.remove("display-block");
+        container.querySelector(".listbox-header i").classList.remove("open");
+        container.classList.remove("open");
+      });
+    }
+  });
+  
 
-customLists.forEach(list => {
-    const options = list.querySelectorAll('.options li');
 
-    options.forEach(option => {
-        option.addEventListener('click', () => {
-            const dataName = option.getAttribute('data-name');
-            const ulId = option.getAttribute('data-section-id');
 
-            const $selectedItem = document.querySelector(`#${ulId} > div.listbox-content > ul.selectedItem`);
-
-            const newLi = document.createElement('li');
-
-            newLi.textContent = dataName;
-
-            $selectedItem.appendChild(newLi);
-        });
-    });
-});
