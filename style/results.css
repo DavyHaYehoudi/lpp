@@ -25,9 +25,8 @@
 }
 
 .custom-listbox.open {
-    border-radius: initial;
-    border-top-right-radius: 11px;
-    border-top-left-radius: 11px;
+    border-bottom-left-radius: initial;
+    border-bottom-right-radius: initial;
 }
 
 .listbox-header {
@@ -41,8 +40,6 @@
 .listbox-content {
     display: none;
     width: 195px;
-    backdrop-filter: blur(4%);
-    transition: height 0.3s ease;
     overflow: hidden;
 }
 
