@@ -6,12 +6,11 @@ export const handleSearchGeneralInput = () => {
 };
 
 export const setupSearchEvent = () => {
-    const $searchForm = document.getElementById("searchGeneralForm");
-    $searchForm.addEventListener("submit", function (event) {
-      handleSearchGeneralInput();
-    });
-  };
-  
+  const $searchForm = document.getElementById("searchGeneralForm");
+  $searchForm.addEventListener("submit", function (event) {
+    handleSearchGeneralInput();
+  });
+};
 
 export const searchRecipes = (query, recipes) => {
   const results = [];
@@ -38,6 +37,5 @@ export const searchRecipes = (query, recipes) => {
     }
   });
 
-  console.log('results:', results)
   return results;
 };
