@@ -1,6 +1,7 @@
+import { createDeleteButton, createLi } from "./utils.js";
+
 // Sélection d'une option et affichage
 const customLists = document.querySelectorAll(".custom-listbox");
-const tagList = document.getElementById("tags");
 
 customLists.forEach((list) => {
   const options = list.querySelectorAll(".options li");
@@ -30,28 +31,4 @@ customLists.forEach((list) => {
   });
 });
 
-function createLi(dataName, sectionId) {
-  // Créer un nouvel li
-  const newLi = document.createElement("li");
-  newLi.textContent = dataName;
 
-  // Ajouter les attributs data au nouvel li
-  newLi.setAttribute("data-name", dataName);
-  newLi.setAttribute("data-section-id", sectionId);
-
-  return newLi;
-}
-
-function createDeleteButton(liListbox, liTags) {
-  const deleteButton = document.createElement("button");
-  deleteButton.type = "button";
-  deleteButton.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-  deleteButton.addEventListener("click", () => {
-    // Supprimer le li parent dans la listbox
-    liListbox.remove();
-    // Supprimer le li parent dans les tags
-    liTags.remove();
-  });
-
-  return deleteButton;
-}
