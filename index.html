@@ -26,7 +26,7 @@
             délicieuses
           </h1>
           <div class="search-wrapper">
-            <form  id="searchGeneralForm">
+            <form id="searchGeneralForm">
               <input
                 type="search"
                 id="search-bar"
@@ -49,7 +49,7 @@
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <div class="listbox-content">
-                <form  >
+                <form>
                   <label for="search_bar_ingredient" class="sr-only"
                     >Rechercher des ingrédients</label
                   >
@@ -65,17 +65,26 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </form>
-                <ul
-                  class="selectedItem"
-                  
-                ></ul>
+                <ul class="selectedItem"></ul>
                 <ul class="options">
-                  <li data-name="Option 1" data-section-id="ingredient_listBox">Option 1</li>
-                  <li data-name="Option 2" data-section-id="ingredient_listBox">Option 2</li>
-                  <li data-name="Option 3" data-section-id="ingredient_listBox">Option 3</li>
-                  <li data-name="Option 4" data-section-id="ingredient_listBox">Option 4</li>
-                  <li data-name="Option 5" data-section-id="ingredient_listBox">Option 5</li>
-                  <li data-name="Option 6" data-section-id="ingredient_listBox">Option 6</li>
+                  <!-- <li data-name="Option 1" data-section-id="ingredient_listBox">
+                    Option 1
+                  </li>
+                  <li data-name="Option 2" data-section-id="ingredient_listBox">
+                    Option 2
+                  </li>
+                  <li data-name="Option 3" data-section-id="ingredient_listBox">
+                    Option 3
+                  </li>
+                  <li data-name="Option 4" data-section-id="ingredient_listBox">
+                    Option 4
+                  </li>
+                  <li data-name="Option 5" data-section-id="ingredient_listBox">
+                    Option 5
+                  </li>
+                  <li data-name="Option 6" data-section-id="ingredient_listBox">
+                    Option 6
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -85,7 +94,7 @@
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <div class="listbox-content">
-                <form  >
+                <form>
                   <label for="search_bar_appliance" class="sr-only"
                     >Rechercher des appareils</label
                   >
@@ -106,12 +115,12 @@
                   data-section-id="appliance_listBox"
                 ></ul>
                 <ul class="options">
-                  <li>Option 1</li>
+                  <!-- <li>Option 1</li>
                   <li>Option 2</li>
                   <li>Option 3</li>
                   <li>Option 4</li>
                   <li>Option 5</li>
-                  <li>Option 6</li>
+                  <li>Option 6</li> -->
                 </ul>
               </div>
             </div>
@@ -121,7 +130,7 @@
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <div class="listbox-content">
-                <form  >
+                <form>
                   <label for="search_bar_ustensils" class="sr-only"
                     >Rechercher des ustensiles</label
                   >
@@ -137,17 +146,26 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </form>
-                <ul
-                  class="selectedItem"
-                  
-                ></ul>
+                <ul class="selectedItem"></ul>
                 <ul class="options">
-                  <li data-name="Option 1" data-section-id="ustensils_listBox">Option 1</li>
-                  <li data-name="Option 2" data-section-id="ustensils_listBox">Option 2</li>
-                  <li data-name="Option 3" data-section-id="ustensils_listBox">Option 3</li>
-                  <li data-name="Option 4" data-section-id="ustensils_listBox">Option 4</li>
-                  <li data-name="Option 5" data-section-id="ustensils_listBox">Option 5</li>
-                  <li data-name="Option 6" data-section-id="ustensils_listBox">Option 6</li>
+                  <!-- <li data-name="Option 1" data-section-id="ustensils_listBox">
+                    Option 1
+                  </li>
+                  <li data-name="Option 2" data-section-id="ustensils_listBox">
+                    Option 2
+                  </li>
+                  <li data-name="Option 3" data-section-id="ustensils_listBox">
+                    Option 3
+                  </li>
+                  <li data-name="Option 4" data-section-id="ustensils_listBox">
+                    Option 4
+                  </li>
+                  <li data-name="Option 5" data-section-id="ustensils_listBox">
+                    Option 5
+                  </li>
+                  <li data-name="Option 6" data-section-id="ustensils_listBox">
+                    Option 6
+                  </li> -->
                 </ul>
               </div>
             </div>
@@ -164,6 +182,9 @@
     <script type="module" src="scripts/listbox.js"></script>
     <script type="module" src="scripts/tags.js"></script>
     <script type="module" src="scripts/forms.js"></script>
+    <script type="module" src="scripts/optionsList.js"></script>
+    <script type="module" src="scripts/processRecipe.js"></script>
+    <script type="module" src="scripts/utils.js"></script>
     <script type="module">
       import { cardsList } from "./scripts/cards.js";
       import { setupSearchEvent } from "./scripts/searchGeneral.js";
