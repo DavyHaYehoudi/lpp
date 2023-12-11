@@ -26,7 +26,7 @@
             délicieuses
           </h1>
           <div class="search-wrapper">
-            <form action="/endpoint-de-recherche" method="GET">
+            <form  id="searchGeneralForm">
               <input
                 type="search"
                 id="search-bar"
@@ -49,7 +49,7 @@
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <div class="listbox-content">
-                <form action="/endpoint-de-recherche" method="GET">
+                <form  >
                   <label for="search_bar_ingredient" class="sr-only"
                     >Rechercher des ingrédients</label
                   >
@@ -85,7 +85,7 @@
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <div class="listbox-content">
-                <form action="/endpoint-de-recherche" method="GET">
+                <form  >
                   <label for="search_bar_appliance" class="sr-only"
                     >Rechercher des appareils</label
                   >
@@ -121,7 +121,7 @@
                 <i class="fa-solid fa-angle-down"></i>
               </div>
               <div class="listbox-content">
-                <form action="/endpoint-de-recherche" method="GET">
+                <form  >
                   <label for="search_bar_ustensils" class="sr-only"
                     >Rechercher des ustensiles</label
                   >
@@ -152,19 +152,23 @@
               </div>
             </div>
           </section>
-          <p id="recipesNumberFind">Nombre de recettes</p>
+          <p id="recipesNumberFind"></p>
         </div>
         <ul id="tags"></ul>
         <div id="cards"></div>
       </main>
     </div>
+    <script type="module" src="scripts/searchGeneral.js"></script>
     <script type="module" src="scripts/card.js"></script>
     <script type="module" src="scripts/cards.js"></script>
     <script type="module" src="scripts/listbox.js"></script>
     <script type="module" src="scripts/tags.js"></script>
+    <script type="module" src="scripts/forms.js"></script>
     <script type="module">
       import { cardsList } from "./scripts/cards.js";
+      import { setupSearchEvent } from "./scripts/searchGeneral.js";
       cardsList();
+      setupSearchEvent();
     </script>
   </body>
 </html>
