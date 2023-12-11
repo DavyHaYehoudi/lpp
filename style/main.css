@@ -26,9 +26,11 @@ ul {
 }
 
 h1,
-h2 {
+h2,
+#recipesNumberFind {
     font-family: 'Anton', sans-serif;
 }
+
 /* Personnalisation de la couleur de la croix */
 #search-bar::-webkit-search-cancel-button,
 #search-bar::-webkit-search-clear-button,

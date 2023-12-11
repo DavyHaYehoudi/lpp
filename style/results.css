@@ -1,4 +1,9 @@
 /* ************************* LISTBOX ************************* */
+#recipesNumberFind{
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 31.61px;
+}
 #advanced-search {
     display: flex;
     justify-content: space-between;
