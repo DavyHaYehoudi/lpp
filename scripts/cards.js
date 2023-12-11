@@ -7,17 +7,20 @@ const $recipesNumberFind = document.querySelector("#recipesNumberFind");
 
 export const cardsList = (filterCriteria = {}, limit = 10) => {
   let filteredRecipes;
+  const formatRecipeCount = (count) => String(count).padStart(2, '0');
   if (
     filterCriteria?.searchGeneral &&
-    filterCriteria.searchGeneral.length >=3
+    filterCriteria.searchGeneral.length >= 3
   ) {
     // Utiliser la fonction de recherche si une requête de recherche générale est présente
     filteredRecipes = searchRecipes(filterCriteria.searchGeneral, recipes);
-    $recipesNumberFind.textContent=`${filteredRecipes.length} recette${filteredRecipes.length>1?"s":""}`
+    $recipesNumberFind.textContent = `${formatRecipeCount(filteredRecipes.length)} recette${
+      filteredRecipes.length > 1 ? "s" : ""
+    }`;
   } else {
     // Utiliser la logique de filtrage par défaut si aucune recherche générale
     filteredRecipes = [...recipes];
-    $recipesNumberFind.textContent=`${limit} recettes`
+    $recipesNumberFind.textContent = `${limit} recettes`;
   }
 
   $cards.innerHTML = "";
