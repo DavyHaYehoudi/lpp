@@ -2,6 +2,7 @@ import { recipes } from "../data/recipes.js";
 import { getOptionsList } from "./optionsList.js";
 import { processRecipe } from "./processRecipe.js";
 import { searchRecipes } from "./searchRecipes.js";
+import { customListOptions } from "./tags.js";
 import { formatRecipeCount } from "./utils.js";
 
 export const cardsList = (filterCriteria = {}, limit = 10) => {
@@ -42,4 +43,5 @@ export const cardsList = (filterCriteria = {}, limit = 10) => {
   slicedRecipes.forEach((item) => processRecipe(item, options));
 
   getOptionsList(options);
+  customListOptions()
 };

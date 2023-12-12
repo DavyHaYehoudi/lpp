@@ -1,34 +1,43 @@
 import { createDeleteButton, createLi } from "./utils.js";
 
-// Sélection d'une option et affichage
-const customLists = document.querySelectorAll(".custom-listbox");
+export const customListOptions = () => {
+  // Sélection d'une option et affichage
+  const customLists = document.querySelectorAll(".custom-listbox");
 
-customLists.forEach((list) => {
-  const options = list.querySelectorAll(".options li");
+  customLists.forEach((list) => {
+    const options = list.querySelectorAll(".options li");
 
-  options.forEach((option) => {
-    option.addEventListener("click", () => {
-      const dataName = option.getAttribute("data-name");
-      const ulId = option.getAttribute("data-section-id");
+    options.forEach((option) => {
+      option.addEventListener("click", () => {
+        const dataName = option.getAttribute("data-name");
+        const ulId = option.getAttribute("data-section-id");
 
-      const $selectedItem = document.querySelector(
-        `#${ulId} > div.listbox-content > ul.selectedItem`
-      );
-      const $tags = document.getElementById("tags");
+        const $selectedItem = document.querySelector(
+          `#${ulId} > div.listbox-content > ul.selectedItem`
+        );
+        const $tags = document.getElementById("tags");
 
-      // Créer un nouvel li dans la listbox
-      const newLiListbox = createLi(dataName, ulId);
+        // Créer un nouvel li dans la listbox
+        const newLiListbox = createLi(dataName, ulId);
 
-      $selectedItem.appendChild(newLiListbox);
+        $selectedItem.appendChild(newLiListbox);
+        option.classList.add("hidden");
 
-      // Créer un nouvel li dans le #tags
-      const newLiTags = createLi(dataName, ulId);
-      const deleteButton = createDeleteButton(newLiListbox, newLiTags);
-      newLiTags.appendChild(deleteButton);
+        // Créer un nouvel li dans le #tags
+        const newLiTags = createLi(dataName, ulId);
 
-      $tags.appendChild(newLiTags);
+        const $options = document.querySelector(
+          `#${ulId} > div.listbox-content > .options`
+        );
+        const deleteButton = createDeleteButton(
+          newLiListbox,
+          newLiTags,
+          $options
+        );
+        newLiTags.appendChild(deleteButton);
+
+        $tags.appendChild(newLiTags);
+      });
     });
   });
-});
-
-
+};
