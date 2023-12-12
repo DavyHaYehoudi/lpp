@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { getOptionsList } from "./optionsList.js";
 import { processRecipe } from "./processRecipe.js";
-import { searchRecipes } from "./searchGeneral.js";
+import { searchRecipes } from "./searchRecipes.js";
 import { formatRecipeCount } from "./utils.js";
 
 export const cardsList = (filterCriteria = {}, limit = 10) => {
@@ -11,6 +11,7 @@ export const cardsList = (filterCriteria = {}, limit = 10) => {
   let filteredRecipes;
 
   if (
+    //Si un terme est passé dans la barre de recherche
     filterCriteria?.searchGeneral &&
     filterCriteria.searchGeneral.length >= 3
   ) {
@@ -19,15 +20,19 @@ export const cardsList = (filterCriteria = {}, limit = 10) => {
       filteredRecipes.length
     )} recette${filteredRecipes.length > 1 ? "s" : ""}`;
   } else {
+    //Sinon, affichage par défaut
     filteredRecipes = [...recipes];
     $recipesNumberFind.textContent = `${limit} recettes`;
   }
 
-  $cards.innerHTML = "";
+  $cards.innerHTML = ""; //Effacer le contenu précédent
+
+  //Limitation du nombre de recettes à afficher
   const slicedRecipes = filterCriteria.searchGeneral
     ? filteredRecipes
     : filteredRecipes.slice(0, limit);
 
+  // Construction des options pour la recherche avancée
   const options = {
     ingredients: [],
     appliance: [],
