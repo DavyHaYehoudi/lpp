@@ -51,13 +51,19 @@
     width: 195px;
     overflow: hidden;
 }
+.listbox-content.display-block li{
+    padding: 10px;
+}
 
 .listbox-content.display-block {
+    display: block;
     position: absolute;
     z-index: 5;
     height: auto;
-    display: block;
+    max-height: 350px;
     background-color: white;
+    border-bottom-left-radius: 11px;
+    border-bottom-right-radius: 11px;
 }
 
 #selects .fa-angle-down {
