@@ -38,3 +38,7 @@ h2,
 .search-bar-select::-webkit-search-clear-button {
     cursor: pointer;
 }
+
+.hidden{
+    display: none;
+}

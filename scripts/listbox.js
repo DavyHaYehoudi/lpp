@@ -25,23 +25,21 @@ listboxHeaders.forEach((header) => {
 
 // Fermeture de la listbox au clic extérieur à elle-même
 document.addEventListener("click", (event) => {
-    const listboxContainers = document.querySelectorAll(".custom-listbox");
+  const listboxContainers = document.querySelectorAll(".custom-listbox");
 
-    // Vérifier si l'élément cliqué est à l'intérieur d'une listbox
-    const isClickInsideListbox = Array.from(listboxContainers).some((container) =>
-      container.contains(event.target)
-    );
+  // Vérifier si l'élément cliqué est à l'intérieur d'une listbox
+  const isClickInsideListbox = Array.from(listboxContainers).some((container) =>
+    container.contains(event.target)
+  );
 
-    // Fermer toutes les listbox si le clic est en dehors
-    if (!isClickInsideListbox) {
-      listboxContainers.forEach((container) => {
-        container.querySelector(".listbox-content").classList.remove("display-block");
-        container.querySelector(".listbox-header i").classList.remove("open");
-        container.classList.remove("open");
-      });
-    }
-  });
-  
-
-
-
+  // Fermer toutes les listbox si le clic est en dehors
+  if (!isClickInsideListbox) {
+    listboxContainers.forEach((container) => {
+      container
+        .querySelector(".listbox-content")
+        .classList.remove("display-block");
+      container.querySelector(".listbox-header i").classList.remove("open");
+      container.classList.remove("open");
+    });
+  }
+});
