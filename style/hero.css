@@ -14,17 +14,18 @@ header img {
 }
 
 h1 {
-    width: 890px;
+    max-width: 890px;
     margin: auto;
     text-transform: uppercase;
     text-align: center;
     color: var(--yellow);
-    font-size: 44px;
+    /* font-size: 44px; */
+    font-size: calc(16px + 2vw); 
     line-height: 66.24px;
 }
 
 .search-wrapper {
-    width: 954px;
+    max-width: 954px;
     margin: 30px auto;
 }
 
@@ -37,7 +38,7 @@ h1 {
 }
 
 .search-wrapper input {
-    width: 900px;
+    min-width: 330px;
     margin-left: 35px;
     padding: 10px;
     border: none;
@@ -69,3 +70,43 @@ h1 {
 }
 
 
+@media only screen and (max-width: 1000px) {
+    h1{
+        font-size: 40px;
+    }
+    .hero-content {
+        margin: 75px 20px;
+    }
+    header img {
+        margin: 20px;
+    }
+}
+@media only screen and (max-width: 415px) {
+    .hero-content {
+        margin: 30px 5px;
+    }
+    #hero {
+        height: 500px;
+    }
+}
+@media only screen and (max-width: 470px) {
+    h1{
+        font-size: 35px;
+    }
+    header img {
+        width: 40%
+    }
+    .search-wrapper input {
+      margin: 0;
+      padding: 0;
+      min-width: inherit;
+      width: 290px;
+    }
+    .search-wrapper input::placeholder {
+        font-size: 14px;    
+    }
+    .search-wrapper button {
+        width: 40px;
+        height: 41px;
+    }
+}

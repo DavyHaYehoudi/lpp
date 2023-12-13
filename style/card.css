@@ -13,10 +13,12 @@
     color: var(--grey);
     letter-spacing: 1px;
 }
-#cards h3{
+
+#cards h3 {
     margin: 20px 0 10px 0;
 }
-#cards h4{
+
+#cards h4 {
     margin-top: 20px;
 }
 
@@ -86,7 +88,32 @@
     color: var(--black);
 }
 
-.card .quantity,.card .unit {
+.card .quantity,
+.card .unit {
     font-weight: 400;
     color: var(--grey);
+}
+
+@media only screen and (max-width: 375px) {
+    .card {
+        width: 370px;
+        height: auto;
+    }
+
+    .card .top {
+        width: 370px;
+        height: 270px;
+    }
+
+}
+@media only screen and (max-width: 320px) {
+    .card {
+        width: 315px;
+    }
+
+    .card .top {
+        width: 315px;
+        height: 215px;
+    }
+
 }

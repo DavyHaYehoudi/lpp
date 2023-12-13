@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* border:1px red solid */
 }
 
 ::after,
@@ -18,7 +19,7 @@ ul {
 }
 
 #container {
-    width: 1440px;
+    max-width: 1440px;
     font-family: 'Manrope', sans-serif;
     margin: auto;
     background-color: var(--light-grey);

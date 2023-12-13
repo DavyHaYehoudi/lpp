@@ -2,12 +2,16 @@
 #advanced-search {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 40px;
+    /* border: 1px red solid; */
 }
 
 #selects {
     display: flex;
+    flex-wrap: wrap;
     gap: 30px;
+    margin-right: 50px;
 }
 
 #selects h4 {
@@ -108,9 +112,9 @@
 }
 
 #tags li {
- display: flex;
- justify-content: space-between;
- width: 203px;
+    display: flex;
+    justify-content: space-between;
+    width: 203px;
     font-weight: 400;
     font-size: 14px;
     line-height: 19.12px;
@@ -120,14 +124,16 @@
     padding: 17px 18px;
 }
 
-#tags button{
+#tags button {
     border: none;
     background-color: var(--yellow);
     transition: transform 0.3s ease-in-out;
 }
-#tags button:hover{
+
+#tags button:hover {
     transform: translateY(-2px);
 }
+
 #tags i {
     cursor: pointer;
     font-size: 20px;
@@ -141,4 +147,34 @@
     place-items: center;
     gap: 50px;
     padding-bottom: 200px;
+}
+
+@media only screen and (max-width: 1230px) {
+    #cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        padding-bottom: 100px;
+    }
+}
+@media only screen and (max-width:921px) {
+    #advanced-search {
+        align-items: baseline;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #cards {
+        grid-template-columns: 1fr;
+        padding-bottom: 50px;
+    }
+}
+@media only screen and (max-width:425px) {
+    #advanced-search {
+        margin: 10px;
+    }
+}
+@media only screen and (max-width:320px) {
+    #selects {
+        margin: 0;
+    }
 }
