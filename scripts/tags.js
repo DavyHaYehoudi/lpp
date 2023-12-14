@@ -15,6 +15,10 @@ export const customListOptions = () => {
         const $selectedItem = document.querySelector(
           `#${ulId} > div.listbox-content > ul.selectedItem`
         );
+        const $searchInputOption = document.getElementById(
+          "search_bar_ustensils"
+        );
+        $searchInputOption.value = ""; //Efface le contenu du champ de recherche avancé
         const $tags = document.getElementById("tags");
 
         // Créer un nouvel li dans la listbox

@@ -19,8 +19,7 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     color: var(--yellow);
-    /* font-size: 44px; */
-    font-size: calc(16px + 2vw); 
+    font-size: 44px;
     line-height: 66.24px;
 }
 
@@ -39,6 +38,7 @@ h1 {
 
 .search-wrapper input {
     min-width: 330px;
+    width: 90%;
     margin-left: 35px;
     padding: 10px;
     border: none;

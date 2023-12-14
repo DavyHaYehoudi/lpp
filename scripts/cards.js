@@ -5,10 +5,10 @@ import { searchRecipes } from "./searchRecipes.js";
 import { customListOptions } from "./tags.js";
 import { formatRecipeCount } from "./utils.js";
 
-export const cardsList = (filterCriteria = {}, limit = 10) => {
+export const cardsList = (filterCriteria = {}) => {
   const $recipesNumberFind = document.querySelector("#recipesNumberFind");
   const $cards = document.querySelector("#cards");
-
+  $cards.classList.remove("notFound");
   let filteredRecipes;
 
   if (
@@ -23,15 +23,10 @@ export const cardsList = (filterCriteria = {}, limit = 10) => {
   } else {
     //Sinon, affichage par défaut
     filteredRecipes = [...recipes];
-    $recipesNumberFind.textContent = `${limit} recettes`;
+    $recipesNumberFind.textContent = `${filteredRecipes.length} recettes`;
   }
 
   $cards.innerHTML = ""; //Effacer le contenu précédent
-
-  //Limitation du nombre de recettes à afficher
-  const slicedRecipes = filterCriteria.searchGeneral
-    ? filteredRecipes
-    : filteredRecipes.slice(0, limit);
 
   // Construction des options pour la recherche avancée
   const options = {
@@ -40,8 +35,15 @@ export const cardsList = (filterCriteria = {}, limit = 10) => {
     ustensils: [],
   };
 
-  slicedRecipes.forEach((item) => processRecipe(item, options));
+  if (filteredRecipes.length === 0) {
+    const newP = document.createElement("p");
+    newP.classList.add("notFound");
+    $cards.classList.add("notFound");
+    newP.innerText = `Aucune recette ne contient ${filterCriteria?.searchGeneral}, vous pouvez chercher "tartes aux pommes", "poisson" etc.`;
+    $cards.appendChild(newP);
+  }
+  filteredRecipes.forEach((item) => processRecipe(item, options));
 
   getOptionsList(options);
-  customListOptions()
+  customListOptions();
 };

@@ -159,6 +159,15 @@
     gap: 50px;
     padding-bottom: 200px;
 }
+#cards.notFound{
+    display: initial;
+}
+.notFound{
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 200px;
+}
 
 @media only screen and (max-width: 1230px) {
     #cards {
