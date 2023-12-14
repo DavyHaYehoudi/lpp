@@ -3,13 +3,11 @@ import { card } from "./card.js";
 
 const $cards = document.querySelector("#cards");
 
-export const cardsList = (filterCriteria = {}, limit = 10) => {
+export const cardsList = (filterCriteria = {}) => {
   let filteredRecipes = [...recipes];
 
   if (filterCriteria && Object.keys(filterCriteria).length > 0) {
     filteredRecipes = filteredRecipes.filter((item) => {
-      // Appliquer les critères de filtrage ici
-      // Exemple: vérifier si chaque critère correspond à la propriété de la recette
       return Object.entries(filterCriteria).every(
         ([key, value]) => item[key] === value
       );
@@ -18,7 +16,7 @@ export const cardsList = (filterCriteria = {}, limit = 10) => {
 
   $cards.innerHTML = "";
 
-  filteredRecipes.slice(0, limit).forEach((item) => {
+  filteredRecipes.forEach((item) => {
     const { image, name, time, description, ingredients } = item;
   
     const ingredientList = ingredients.map((el) => {
