@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { searchRecipes } from "./searchRecipes.js";
 import { updateRecipes } from "./updateRecipes.js";
-import { formatRecipeCount} from "./utils.js";
+import { escapeHtml, formatRecipeCount} from "./utils.js";
 
 export const cardsList = (filterCriteria = {}) => {
   localStorage.clear();
@@ -15,7 +15,9 @@ export const cardsList = (filterCriteria = {}) => {
     filterCriteria?.searchGeneral &&
     filterCriteria.searchGeneral.length >= 3
   ) {
-    filteredRecipes = searchRecipes(filterCriteria.searchGeneral, recipes);
+    //Neutralisation d'une éventuelle injection HTML
+    const escapedSearchTerm = escapeHtml(filterCriteria.searchGeneral);
+    filteredRecipes = searchRecipes(escapedSearchTerm, recipes);
     $recipesNumberFind.textContent = `${formatRecipeCount(
       filteredRecipes.length
     )} recette${filteredRecipes.length > 1 ? "s" : ""}`;

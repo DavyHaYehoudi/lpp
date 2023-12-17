@@ -1,5 +1,6 @@
 import { getOptionsList } from "./optionsList.js";
 import { customListOptions } from "./tags.js";
+import { escapeHtml } from "./utils.js";
 
 const $searchOptionInput = document.querySelectorAll(".search-bar-select");
 const sections = {
@@ -17,6 +18,8 @@ let options = {
 $searchOptionInput.forEach((input) => {
   //Appliquer pour tous les inputs de la classe sélectionnée
   input.addEventListener("input", (event) => {
+     //Neutralisation d'une éventuelle injection HTML
+     const escapedSearchTerm = escapeHtml(event.target.value);
     //Attribuer un événement
     for (const [key, selector] of Object.entries(sections)) {
       const section = document.querySelectorAll(selector);
@@ -33,7 +36,7 @@ $searchOptionInput.forEach((input) => {
       [event.target.name]: [
         ...new Set(
           options[event.target.name].filter((item) =>
-            item.toLowerCase().includes(event.target.value.toLowerCase())
+            item.toLowerCase().includes(escapedSearchTerm.toLowerCase())
           )
         ),
       ],

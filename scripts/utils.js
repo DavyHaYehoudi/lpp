@@ -28,3 +28,13 @@ export function createDeleteButton(liListbox, liTags, dataName) {
 }
 
 export const formatRecipeCount = (count) => String(count).padStart(2, "0");
+
+//Prévention injection HTML
+export function escapeHtml(unsafe) {
+  return unsafe
+       .replace(/&/g, "&amp;")
+       .replace(/</g, "&lt;")
+       .replace(/>/g, "&gt;")
+       .replace(/"/g, "&quot;")
+       .replace(/'/g, "&#039;");
+}
