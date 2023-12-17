@@ -1,6 +1,6 @@
 import { recipes } from "../data/recipes.js";
 import { searchRecipes } from "./searchRecipes.js";
-import { updateRecipes } from "./utils.js";
+import { updateRecipes } from "./updateRecipes.js";
 
 //Récupération des id des recettes affichées
 const getSelectedIds = () => {

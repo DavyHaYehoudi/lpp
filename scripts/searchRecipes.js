@@ -1,24 +1,3 @@
-import { cardsList } from "./cards.js";
-
-// export const handleSearchGeneralInput = () => {
-//   const searchTerm = document.getElementById("search-bar").value;
-//   cardsList({ searchGeneral: searchTerm });
-// };
-
-// export const setupSearchEvent = () => {
-//   const $searchForm = document.getElementById("searchGeneralForm");
-//   $searchForm.addEventListener("submit", function () {
-//     handleSearchGeneralInput();
-//   });
-// };
-export const handleSearchGeneralInput = () => {
-  const $searchTerm = document.getElementById("search-bar");
-  $searchTerm.addEventListener("input", function () {
-    const searchTerm = $searchTerm.value;
-    cardsList({ searchGeneral: searchTerm });
-  });
-};
-
 export const searchRecipes = (query, recipes, tagName) => {
   const results = [];
 

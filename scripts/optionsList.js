@@ -7,9 +7,20 @@ const sections = {
 };
 
 export const getOptionsList = (options) => {
+  const activeOptionDataNames = Array.from(
+    document.querySelectorAll(".selectedItem li")
+  ).map((tag) => tag.getAttribute("data-name"));
+
   for (const [key, selector] of Object.entries(sections)) {
     const $optionsList = document.querySelector(selector);
-    const uniqueOptions = [...new Set(options[key])];
+    let uniqueOptions = [...new Set(options[key])];
+
+    //Ne pas proposer les options déjà sélectionnées
+    if (activeOptionDataNames.length > 0) {
+      uniqueOptions = uniqueOptions.filter((option) =>
+        activeOptionDataNames.every((name) => name.toLowerCase() !== option.toLowerCase())
+      );
+    }
 
     $optionsList.innerHTML = "";
     const uniqueOptionsSorted = uniqueOptions.sort();

@@ -14,18 +14,21 @@ let options = {
   ustensils: [],
 };
 
-$searchOptionInput.forEach((input) => { //Appliquer pour tous les inputs de la classe sélectionnée
-  input.addEventListener("input", (event) => { //Attribuer un événement 
+$searchOptionInput.forEach((input) => {
+  //Appliquer pour tous les inputs de la classe sélectionnée
+  input.addEventListener("input", (event) => {
+    //Attribuer un événement
     for (const [key, selector] of Object.entries(sections)) {
       const section = document.querySelectorAll(selector);
 
       section.forEach((el) => {
         const optionName = el.getAttribute("data-name");
-        options = { ...options, [key]: [...options[key], optionName] };//Alimenter l'objet options par ce qui est contenu dans les listes
+        options = { ...options, [key]: [...options[key], optionName] }; //Alimenter l'objet options par ce qui est contenu dans les listes
       });
     }
 
-    const optionsFilter = { //Modifier les valeurs en fonction du texte saisi dans l'input
+    const optionsFilter = {
+      //Modifier les valeurs en fonction du texte saisi dans l'input
       ...options,
       [event.target.name]: [
         ...new Set(
@@ -37,6 +40,6 @@ $searchOptionInput.forEach((input) => { //Appliquer pour tous les inputs de la c
     };
 
     getOptionsList(optionsFilter);
-    customListOptions()
+    customListOptions();
   });
 });

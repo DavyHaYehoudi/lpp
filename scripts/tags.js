@@ -12,9 +12,6 @@ export const customListOptions = () => {
 
       //Noeuds du DOM
       const $tags = document.getElementById("tags");
-      // const $searchInputOption = document.getElementById(
-      //   `search_bar_${ulId.split("_")[0]}`
-      // );
       const $selectedItem = document.querySelector(
         `#${ulId} > div.listbox-content > ul.selectedItem`
       );
@@ -22,7 +19,6 @@ export const customListOptions = () => {
       // Créer un nouvel li dans la listbox
       const newLiListbox = createLi(dataName, ulId);
       $selectedItem.appendChild(newLiListbox);
-      option.classList.add("hidden");
 
       // Créer le nom du tag
       const newLiTags = createLi(dataName, ulId, "tag");
@@ -31,16 +27,11 @@ export const customListOptions = () => {
       const deleteButton = createDeleteButton(
         newLiListbox,
         newLiTags,
-        option,
-        dataName,
-        ulId
+        dataName
       );
       newLiTags.appendChild(deleteButton);
       //Ajouter le tag dans son espace dédié
       $tags.appendChild(newLiTags);
-
-      //Efface le contenu du champ de recherche avancé
-      // $searchInputOption.value = "";
     });
   });
 };

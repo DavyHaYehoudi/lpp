@@ -1,6 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { searchRecipes } from "./searchRecipes.js";
-import { formatRecipeCount, updateRecipes } from "./utils.js";
+import { updateRecipes } from "./updateRecipes.js";
+import { formatRecipeCount} from "./utils.js";
 
 export const cardsList = (filterCriteria = {}) => {
   localStorage.clear();
