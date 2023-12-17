@@ -2,7 +2,7 @@ import { card } from "./card.js";
 const $cards = document.querySelector("#cards");
 
 export const processRecipe = (item, options) => {
-  const { image, name, time, description, ingredients, appliance, ustensils } =
+  const {id, image, name, time, description, ingredients, appliance, ustensils } =
     item;
 
   const ingredientList = ingredients.map(
@@ -24,6 +24,7 @@ export const processRecipe = (item, options) => {
   );
 
   $cards.innerHTML += card(
+    id,
     image,
     name,
     time,

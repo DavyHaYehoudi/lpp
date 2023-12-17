@@ -131,7 +131,8 @@
           <p id="recipesNumberFind"></p>
         </div>
         <ul id="tags"></ul>
-        <div id="cards"></div>
+        <div id="cards">
+        </div>
       </main>
     </div>
     <script type="module" src="scripts/searchRecipes.js"></script>
@@ -141,14 +142,15 @@
     <script type="module" src="scripts/tags.js"></script>
     <script type="module" src="scripts/forms.js"></script>
     <script type="module" src="scripts/optionsList.js"></script>
-    <script type="module" src="scripts/optionsList.js"></script>
     <script type="module" src="scripts/searchOption.js"></script>
+    <script type="module" src="scripts/searchByTag.js"></script>
+    <script type="module" src="scripts/processRecipe.js"></script>
     <script type="module" src="scripts/utils.js"></script>
     <script type="module">
       import { cardsList } from "./scripts/cards.js";
-      import { setupSearchEvent } from "./scripts/searchRecipes.js";
+      import { handleSearchGeneralInput } from "./scripts/searchRecipes.js";
       cardsList();
-      setupSearchEvent();
+      handleSearchGeneralInput();
     </script>
   </body>
 </html>

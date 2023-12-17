@@ -7,7 +7,6 @@ const sections = {
 };
 
 export const getOptionsList = (options) => {
-  // console.log("options dans getOptionsList :",options);
   for (const [key, selector] of Object.entries(sections)) {
     const $optionsList = document.querySelector(selector);
     const uniqueOptions = [...new Set(options[key])];

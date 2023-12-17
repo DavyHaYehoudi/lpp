@@ -1,4 +1,5 @@
 export const card = (
+  id,
   image,
   name,
   time,
@@ -20,7 +21,7 @@ export const card = (
   });
 
   return `
-      <article class="card">
+      <article class="card" data-id=${id} >
         <div class="top">
           <img src="./images/${image}" alt="${name}" />
           <span class="time">${time}min</span>

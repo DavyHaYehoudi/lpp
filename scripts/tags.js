@@ -2,46 +2,45 @@ import { createDeleteButton, createLi } from "./utils.js";
 
 export const customListOptions = () => {
   // Sélection d'une option et affichage
-  const customLists = document.querySelectorAll(".custom-listbox");
+  const options = document.querySelectorAll(".options li");
 
-  customLists.forEach((list) => {
-    const options = list.querySelectorAll(".options li");
+  options.forEach((option) => {
+    option.addEventListener("click", () => {
+      //Récupération des attributs sur li
+      const dataName = option.getAttribute("data-name");
+      const ulId = option.getAttribute("data-section-id");
 
-    options.forEach((option) => {
-      option.addEventListener("click", () => {
-        const dataName = option.getAttribute("data-name");
-        const ulId = option.getAttribute("data-section-id");
+      //Noeuds du DOM
+      const $tags = document.getElementById("tags");
+      // const $searchInputOption = document.getElementById(
+      //   `search_bar_${ulId.split("_")[0]}`
+      // );
+      const $selectedItem = document.querySelector(
+        `#${ulId} > div.listbox-content > ul.selectedItem`
+      );
 
-        const $selectedItem = document.querySelector(
-          `#${ulId} > div.listbox-content > ul.selectedItem`
-        );
-        const $searchInputOption = document.getElementById(
-          "search_bar_ustensils"
-        );
-        $searchInputOption.value = ""; //Efface le contenu du champ de recherche avancé
-        const $tags = document.getElementById("tags");
+      // Créer un nouvel li dans la listbox
+      const newLiListbox = createLi(dataName, ulId);
+      $selectedItem.appendChild(newLiListbox);
+      option.classList.add("hidden");
 
-        // Créer un nouvel li dans la listbox
-        const newLiListbox = createLi(dataName, ulId);
+      // Créer le nom du tag
+      const newLiTags = createLi(dataName, ulId, "tag");
 
-        $selectedItem.appendChild(newLiListbox);
-        option.classList.add("hidden");
+      //Créer le bouton delete du tag
+      const deleteButton = createDeleteButton(
+        newLiListbox,
+        newLiTags,
+        option,
+        dataName,
+        ulId
+      );
+      newLiTags.appendChild(deleteButton);
+      //Ajouter le tag dans son espace dédié
+      $tags.appendChild(newLiTags);
 
-        // Créer un nouvel li dans le #tags
-        const newLiTags = createLi(dataName, ulId);
-
-        const $options = document.querySelector(
-          `#${ulId} > div.listbox-content > .options`
-        );
-        const deleteButton = createDeleteButton(
-          newLiListbox,
-          newLiTags,
-          $options
-        );
-        newLiTags.appendChild(deleteButton);
-
-        $tags.appendChild(newLiTags);
-      });
+      //Efface le contenu du champ de recherche avancé
+      // $searchInputOption.value = "";
     });
   });
 };
