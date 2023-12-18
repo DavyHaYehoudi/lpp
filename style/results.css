@@ -1,9 +1,10 @@
 /* ************************* LISTBOX ************************* */
-#recipesNumberFind{
+#recipesNumberFind {
     font-weight: 400;
     font-size: 21px;
     line-height: 31.61px;
 }
+
 #advanced-search {
     display: flex;
     justify-content: space-between;
@@ -28,7 +29,7 @@
 }
 
 .custom-listbox {
-    width: 195px;
+    width: 215px;
     background-color: white;
     border-radius: 11px;
 }
@@ -48,10 +49,11 @@
 
 .listbox-content {
     display: none;
-    width: 195px;
+    width: 215px;
     overflow: hidden;
 }
-.listbox-content.display-block li{
+
+.listbox-content.display-block li {
     padding: 10px;
 }
 
@@ -76,15 +78,23 @@
 }
 
 .custom-listbox form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border: 1px solid var(--light-grey);
     margin: 10px;
     padding: 2px;
+}
+
+.custom-listbox input {
+    width: 90%;
 }
 
 .custom-listbox button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding-right: 5px;
 }
 
 .search-bar-select {
@@ -160,10 +170,12 @@
     gap: 50px;
     padding-bottom: 200px;
 }
-#cards.notFound{
+
+#cards.notFound {
     display: initial;
 }
-.notFound{
+
+.notFound {
     text-align: center;
     font-weight: bold;
     font-style: italic;
@@ -177,6 +189,7 @@
         padding-bottom: 100px;
     }
 }
+
 @media only screen and (max-width:921px) {
     #advanced-search {
         align-items: baseline;
@@ -189,11 +202,13 @@
         padding-bottom: 50px;
     }
 }
+
 @media only screen and (max-width:425px) {
     #advanced-search {
         margin: 10px;
     }
 }
+
 @media only screen and (max-width:320px) {
     #selects {
         margin: 0;
