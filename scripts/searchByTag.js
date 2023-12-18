@@ -1,5 +1,6 @@
 import { recipes } from "../data/recipes.js";
-import { searchRecipes } from "./searchRecipes.js";
+import { functionalSearchRecipes } from "./functionalSearchRecipes.js";
+// import { searchRecipes } from "./searchRecipes.js";
 import { updateRecipes } from "./updateRecipes.js";
 
 //Récupération des id des recettes affichées
@@ -10,7 +11,8 @@ const getSelectedIds = () => {
 
 const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
   if (action === "add") {
-    const searchResults = searchRecipes("tag", recipes, dataName);
+    // const searchResults = searchRecipes("tag", recipes, dataName);
+    const searchResults = functionalSearchRecipes("tag", recipes, dataName);
     return searchResults.filter((item) =>
       recipesSelectedId.includes(String(item.id))
     );
@@ -25,7 +27,8 @@ const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
     //S'il reste encore au moins un tag après la suppression de l'un d'entre-eux
     if (activeRecipeDataNames.length > 0) {
       const searchResults = activeRecipeDataNames.map((name) =>
-        searchRecipes("tag", recipes, name)
+        // searchRecipes("tag", recipes, name)
+        functionalSearchRecipes("tag", recipes, name)
       );
       const commonResults = searchResults.reduce(
         (acc, currentArray) =>
@@ -35,7 +38,8 @@ const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
 
       if (storedCriteria) {
         //Une recherche principale est à considérer
-        const searchMain = searchRecipes(storedCriteria, recipes);
+        // const searchMain = searchRecipes(storedCriteria, recipes);
+        const searchMain = functionalSearchRecipes(storedCriteria, recipes);
         return commonResults.filter((result) =>
           searchMain.some((sm) => sm.id === result.id)
         );
@@ -45,7 +49,8 @@ const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
       }
       //Suppression du dernier tag
     } else if (storedCriteria) {
-      return searchRecipes(storedCriteria, recipes);
+      // return searchRecipes(storedCriteria, recipes);
+      return functionalSearchRecipes(storedCriteria, recipes);
     } else {
       return [...recipes];
     }

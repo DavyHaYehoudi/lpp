@@ -64,6 +64,7 @@
     background-color: white;
     border-bottom-left-radius: 11px;
     border-bottom-right-radius: 11px;
+    overflow-y: auto;
 }
 
 #selects .fa-angle-down {

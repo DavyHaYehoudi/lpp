@@ -13,19 +13,24 @@ export const getOptionsList = (options) => {
 
   for (const [key, selector] of Object.entries(sections)) {
     const $optionsList = document.querySelector(selector);
-    let uniqueOptions = [...new Set(options[key])];
+    //Filtre des noms dupliqués dont simplement l'orthographe diffère
+    let uniqueOptions = [
+      ...new Set(options[key].map((option) => option.toLowerCase())),
+    ];
 
     //Ne pas proposer les options déjà sélectionnées
     if (activeOptionDataNames.length > 0) {
       uniqueOptions = uniqueOptions.filter((option) =>
-        activeOptionDataNames.every((name) => name.toLowerCase() !== option.toLowerCase())
+        activeOptionDataNames.every((name) => name.toLowerCase() !== option)
       );
     }
 
     $optionsList.innerHTML = "";
     const uniqueOptionsSorted = uniqueOptions.sort();
     uniqueOptionsSorted.forEach((option) => {
-      const newLiOption = createLi(option, key + "_listBox");
+      const capitalizedOption =
+        option.charAt(0).toUpperCase() + option.slice(1);
+      const newLiOption = createLi(capitalizedOption, key + "_listBox");
       $optionsList.appendChild(newLiOption);
     });
   }
