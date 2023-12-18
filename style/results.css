@@ -28,7 +28,7 @@
 }
 
 .custom-listbox {
-    width: 195px;
+    width: 215px;
     background-color: white;
     border-radius: 11px;
 }
@@ -48,7 +48,7 @@
 
 .listbox-content {
     display: none;
-    width: 195px;
+    width: 215px;
     overflow: hidden;
 }
 .listbox-content.display-block li{
@@ -76,15 +76,22 @@
 }
 
 .custom-listbox form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     border: 1px solid var(--light-grey);
     margin: 10px;
     padding: 2px;
+}
+.custom-listbox input{
+    width: 90%;
 }
 
 .custom-listbox button {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    padding-right: 5px;
 }
 
 .search-bar-select {
