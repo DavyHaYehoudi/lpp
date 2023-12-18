@@ -1,5 +1,5 @@
 import { recipes } from "../data/recipes.js";
-import { functionalSearchRecipes } from "./functionalSearchRecipes.js";
+import { imperativeSearchRecipes } from "./imperativeSearchRecipes.js";
 // import { searchRecipes } from "./searchRecipes.js";
 import { updateRecipes } from "./updateRecipes.js";
 import { escapeHtml, formatRecipeCount} from "./utils.js";
@@ -19,7 +19,7 @@ export const cardsList = (filterCriteria = {}) => {
     //Neutralisation d'une éventuelle injection HTML
     const escapedSearchTerm = escapeHtml(filterCriteria.searchGeneral);
     // filteredRecipes = searchRecipes(escapedSearchTerm, recipes);
-    filteredRecipes = functionalSearchRecipes(escapedSearchTerm, recipes);
+    filteredRecipes = imperativeSearchRecipes(escapedSearchTerm, recipes);
     $recipesNumberFind.textContent = `${formatRecipeCount(
       filteredRecipes.length
     )} recette${filteredRecipes.length > 1 ? "s" : ""}`;

@@ -1,5 +1,5 @@
 import { recipes } from "../data/recipes.js";
-import { functionalSearchRecipes } from "./functionalSearchRecipes.js";
+import { imperativeSearchRecipes } from "./imperativeSearchRecipes.js";
 // import { searchRecipes } from "./searchRecipes.js";
 import { updateRecipes } from "./updateRecipes.js";
 
@@ -12,7 +12,7 @@ const getSelectedIds = () => {
 const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
   if (action === "add") {
     // const searchResults = searchRecipes("tag", recipes, dataName);
-    const searchResults = functionalSearchRecipes("tag", recipes, dataName);
+    const searchResults = imperativeSearchRecipes("tag", recipes, dataName);
     return searchResults.filter((item) =>
       recipesSelectedId.includes(String(item.id))
     );
@@ -28,7 +28,7 @@ const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
     if (activeRecipeDataNames.length > 0) {
       const searchResults = activeRecipeDataNames.map((name) =>
         // searchRecipes("tag", recipes, name)
-        functionalSearchRecipes("tag", recipes, name)
+        imperativeSearchRecipes("tag", recipes, name)
       );
       const commonResults = searchResults.reduce(
         (acc, currentArray) =>
@@ -39,7 +39,7 @@ const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
       if (storedCriteria) {
         //Une recherche principale est à considérer
         // const searchMain = searchRecipes(storedCriteria, recipes);
-        const searchMain = functionalSearchRecipes(storedCriteria, recipes);
+        const searchMain = imperativeSearchRecipes(storedCriteria, recipes);
         return commonResults.filter((result) =>
           searchMain.some((sm) => sm.id === result.id)
         );
@@ -50,7 +50,7 @@ const filterByTag = (action, dataName, recipesSelectedId, storedCriteria) => {
       //Suppression du dernier tag
     } else if (storedCriteria) {
       // return searchRecipes(storedCriteria, recipes);
-      return functionalSearchRecipes(storedCriteria, recipes);
+      return imperativeSearchRecipes(storedCriteria, recipes);
     } else {
       return [...recipes];
     }
